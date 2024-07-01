@@ -7,28 +7,19 @@
 package utils
 
 /* 链表节点 */
-class ListNode(var value: Int) {
+class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* 将列表序列化为链表 */
+        /* 将列表反序列化为链表 */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum
-            for (value in arr) {
-                head.next = ListNode(value)
+            for (_val in arr) {
+                head.next = ListNode(_val)
                 head = head.next!!
             }
             return dum.next
-        }
-
-        /* 获取链表中值为 value 的节点 */
-        fun getListNode(h: ListNode, value: Int): ListNode {
-            var head = h
-            while (head.value != value) {
-                head = head.next!!
-            }
-            return head
         }
     }
 }

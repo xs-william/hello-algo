@@ -6,6 +6,7 @@
 
 package chapter_stack_and_queue
 
+/* 基于链表实现的队列 */
 class LinkedListQueue(
     // 头节点 front ，尾节点 rear
     private var front: ListNode? = null,
@@ -51,7 +52,7 @@ class LinkedListQueue(
     /* 访问队首元素 */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return front!!.value
+        return front!!._val
     }
 
     /* 将链表转化为 Array 并返回 */
@@ -59,7 +60,7 @@ class LinkedListQueue(
         var node = front
         val res = IntArray(size())
         for (i in res.indices) {
-            res[i] = node!!.value
+            res[i] = node!!._val
             node = node.next
         }
         return res

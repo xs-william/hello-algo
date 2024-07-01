@@ -6,6 +6,7 @@
 
 package chapter_stack_and_queue
 
+/* 基于链表实现的栈 */
 class LinkedListStack(
     private var stackPeek: ListNode? = null, // 将头节点作为栈顶
     private var stkSize: Int = 0 // 栈的长度
@@ -33,14 +34,14 @@ class LinkedListStack(
     fun pop(): Int? {
         val num = peek()
         stackPeek = stackPeek?.next
-        stkSize--;
+        stkSize--
         return num
     }
 
     /* 访问栈顶元素 */
     fun peek(): Int? {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        return stackPeek?.value
+        return stackPeek?._val
     }
 
     /* 将 List 转化为 Array 并返回 */
@@ -48,7 +49,7 @@ class LinkedListStack(
         var node = stackPeek
         val res = IntArray(size())
         for (i in res.size - 1 downTo 0) {
-            res[i] = node?.value!!
+            res[i] = node?._val!!
             node = node.next
         }
         return res
